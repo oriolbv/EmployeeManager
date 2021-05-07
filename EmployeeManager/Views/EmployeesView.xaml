@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="EmployeeManager.Views.EmployeesView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EmployeeManager.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBox></TextBox>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Width="50" Content="Search" Click="OnSearchClick"></Button>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Button Width="50" Content="Add" Click="OnAddUser"></Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button Width="50" Content="Export" Click="OnExportData"></Button>
+            </Grid>
+        </Grid>
+
+        <!-- List of Employees -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Grid.ColumnSpan="2">
+                <ListBox Name="lbEmployees" HorizontalContentAlignment="Stretch" MouseDoubleClick="OnEmployeeDoubleClick">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <TextBlock Text="{Binding Id}" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBlock Text="{Binding Name}" />
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <TextBlock Text="{Binding Email}" />
+                                </Grid>
+                                <Grid Grid.Column="3">
+                                    <Button Content="Edit" Width="50" Click="OnEditUser"></Button>
+                                </Grid>
+                                <Grid Grid.Column="4" Margin="10,0">
+                                    <Button Content="Delete" Width="50" Click="OnDeleteUser"></Button>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="1">
+
+        </Grid>
+    </Grid>
+</UserControl>
