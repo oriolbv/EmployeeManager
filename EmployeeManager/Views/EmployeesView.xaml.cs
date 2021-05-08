@@ -33,33 +33,36 @@ namespace EmployeeManager.Views
 
         private void OnSearchClick(object sender, RoutedEventArgs e)
         {
-            _vm.OnSearch("", 1);
+            _vm.SearchEmployees(tbSearch.Text, 1);
         }
 
         private void OnEditUser(object sender, RoutedEventArgs e)
         {
-
+            Button btn = sender as Button;
+            _vm.ShowEmployeeDetails((Employee)btn.DataContext, true, false);
         }
 
         private void OnDeleteUser(object sender, RoutedEventArgs e)
         {
-
+            Button btn = sender as Button;
+            _vm.DeleteEmployee((Employee)btn.DataContext);
         }
 
         private void OnExportData(object sender, RoutedEventArgs e)
         {
-
+            _vm.ExportData();
         }
+
         private void OnAddUser(object sender, RoutedEventArgs e)
         {
-
+            _vm.ShowEmployeeDetails(null, true, true);
         }
 
         private void OnEmployeeDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (lbEmployees.SelectedItem != null)
             {
-                _vm.ShowEmployeeDetails((Employee) lbEmployees.SelectedItem, false);
+                _vm.ShowEmployeeDetails((Employee) lbEmployees.SelectedItem, false, false);
             }
         }
 

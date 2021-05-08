@@ -22,11 +22,22 @@ namespace EmployeeManager.Views
     public partial class EmployeeDetailView : Window
     {
         private EmployeeDetailViewModel _vm;
-        public EmployeeDetailView(Employee employee, bool isEditable)
+        public EmployeeDetailView(Employee employee, bool isEditable, bool isAddingNewEmployee)
         {
             InitializeComponent();
-            _vm = new EmployeeDetailViewModel(this, employee);
+            _vm = new EmployeeDetailViewModel(this, employee, isEditable, isAddingNewEmployee);
             this.DataContext = _vm;
+        }
+
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            Employee new_employee = new Employee(tbName.Text, tbEmail.Text, tbGender.Text, tbStatus.Text);
+            _vm.SaveEmployee(new_employee);
+        }
+
+        private void OnCancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

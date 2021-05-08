@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeManager.Views"
         mc:Ignorable="d"
-        Title="EmployeeDetailView" Height="200" Width="400">
+        Title="EmployeeDetailView" Height="220" Width="400">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -23,7 +24,7 @@
                 <TextBlock Text="Name:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox Text="{Binding Name}"/>
+                <TextBox Name="tbName" Text="{Binding Name}" IsEnabled="{Binding IsEditable}"/>
             </Grid>
         </Grid>
 
@@ -36,7 +37,7 @@
                 <TextBlock Text="Email:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox Text="{Binding Email}"/>
+                <TextBox Name="tbEmail" Text="{Binding Email}" IsEnabled="{Binding IsEditable}"/>
             </Grid>
         </Grid>
 
@@ -49,7 +50,7 @@
                 <TextBlock Text="Gender:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox Text="{Binding Gender}"/>
+                <TextBox Name="tbGender" Text="{Binding Gender}" IsEnabled="{Binding IsEditable}"/>
             </Grid>
         </Grid>
 
@@ -62,7 +63,20 @@
                 <TextBlock Text="Status:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox Text="{Binding Status}"/>
+                <TextBox Name="tbStatus" Text="{Binding Status}" IsEnabled="{Binding IsEditable}"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="4" Margin="30,00" HorizontalAlignment="Right" Visibility="{Binding SaveVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="5,0">
+                <Button Name="btnSave" Content="Save" Click="OnSave"/>
+            </Grid>
+            <Grid Grid.Column="1"  Margin="5,0">
+                <Button Name="btnCancel" Content="Cancel" Click="OnCancel"/>
             </Grid>
         </Grid>
 

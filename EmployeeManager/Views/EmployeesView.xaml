@@ -20,10 +20,10 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <TextBox></TextBox>
+                <TextBox Name="tbSearch"></TextBox>
             </Grid>
             <Grid Grid.Column="1">
-                <Button Width="50" Content="Search" Click="OnSearchClick"></Button>
+                <Button Name="btnSearch" Width="50" Content="Search" Click="OnSearchClick"></Button>
             </Grid>
         </Grid>
 
@@ -33,10 +33,10 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Button Width="50" Content="Add" Click="OnAddUser"></Button>
+                <Button Name="btnAdd" Width="50" Content="Add" Click="OnAddUser"></Button>
             </Grid>
             <Grid Grid.Column="1">
-                <Button Width="50" Content="Export" Click="OnExportData"></Button>
+                <Button Name="btnExport" Width="50" Content="Export" Click="OnExportData"></Button>
             </Grid>
         </Grid>
 
