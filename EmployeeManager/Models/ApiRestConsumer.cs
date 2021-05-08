@@ -33,10 +33,10 @@ namespace EmployeeManager.Models
         public async Task<List<Employee>> GetEmployeesAsync(string search, int page)
         {
             List<Employee> employees = null;
-            string path = "users";
+            string path = "users?page=" + page;
             if (search != "")
             {
-                path = path + "?name=" + search;
+                path = path + "&name=" + search;
             }
 
             HttpResponseMessage response = await _client.GetAsync(path);

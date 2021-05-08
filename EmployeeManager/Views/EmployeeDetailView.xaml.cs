@@ -31,7 +31,7 @@ namespace EmployeeManager.Views
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
-            Employee new_employee = new Employee(tbName.Text, tbEmail.Text, tbGender.Text, tbStatus.Text);
+            Employee new_employee = new Employee(tbName.Text, tbEmail.Text, cbGender.Text, cbStatus.Text);
             _vm.SaveEmployee(new_employee);
         }
 

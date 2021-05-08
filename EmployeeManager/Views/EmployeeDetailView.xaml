@@ -50,7 +50,10 @@
                 <TextBlock Text="Gender:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox Name="tbGender" Text="{Binding Gender}" IsEnabled="{Binding IsEditable}"/>
+                <ComboBox Name="cbGender" SelectedValue="{Binding Gender, Mode=TwoWay}">
+                    <ComboBoxItem>Male</ComboBoxItem>
+                    <ComboBoxItem>Female</ComboBoxItem>
+                </ComboBox>
             </Grid>
         </Grid>
 
@@ -63,7 +66,10 @@
                 <TextBlock Text="Status:"/>
             </Grid>
             <Grid Grid.Column="1">
-                <TextBox Name="tbStatus" Text="{Binding Status}" IsEnabled="{Binding IsEditable}"/>
+                <ComboBox Name="cbStatus" SelectedValue="{Binding Status, Mode=TwoWay}">
+                    <ComboBoxItem>Active</ComboBoxItem>
+                    <ComboBoxItem>Inactive</ComboBoxItem>
+                </ComboBox>
             </Grid>
         </Grid>
 

@@ -18,10 +18,15 @@ namespace EmployeeManager.ViewModels
         private static EmployeesView _view;
         private static List<Employee> _employees;
 
+        private static int _actualPage;
+        private static string _searchText;
+
 
         public EmployeesViewModel(EmployeesView view)
         {
             _view = view;
+            _actualPage = 1;
+            _searchText = "";
         }
 
         #region Public methods
@@ -38,17 +43,18 @@ namespace EmployeeManager.ViewModels
 
         public async void SearchEmployees(string searchText, int page)
         {
-            await GetEmployeesTask(searchText, 1);
+            _searchText = searchText;
+            await GetEmployeesTask(_searchText, page);
         }
 
         public void ExportData()
         {
             // Open dialog to choose the path where the file will be saved.
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Title = "Save a CSV File";
-            saveFileDialog1.ShowDialog();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Save a CSV File";
+            saveFileDialog.ShowDialog();
 
-            if (saveFileDialog1.FileName != "")
+            if (saveFileDialog.FileName != "")
             {
                 // Export data to CSV
                 var csv = new StringBuilder();
@@ -63,11 +69,25 @@ namespace EmployeeManager.ViewModels
                     csv.AppendLine(line);
                 }
 
-                File.WriteAllText(saveFileDialog1.FileName, csv.ToString());
+                File.WriteAllText(saveFileDialog.FileName, csv.ToString());
             }
         }
-        #endregion
 
+        internal void LoadPreviousPage()
+        {
+            if (_actualPage > 1)
+            {
+                ActualPage -= 1;
+                SearchEmployees(_searchText, _actualPage);
+            }
+        }
+
+        internal void LoadNextPage()
+        {
+            ActualPage += 1;
+            SearchEmployees(_searchText, _actualPage);
+        }
+        #endregion
 
         #region Tasks
         static async Task GetEmployeesTask(string searchText, int page)
@@ -81,7 +101,7 @@ namespace EmployeeManager.ViewModels
             var statusCode = await _api.DeleteEmployee(id);
             Console.WriteLine($"Employee {id} deleted correctly!");
             // Refresh page in order to give feedback of the deleted employee.
-            await GetEmployeesTask("", 1);
+            await GetEmployeesTask(_searchText, _actualPage);
         }
         #endregion
 
@@ -91,6 +111,32 @@ namespace EmployeeManager.ViewModels
             _view.lbEmployees.ItemsSource = employees;
         }
 
+        #endregion
+
+        #region Properties
+        public int ActualPage
+        {
+            get
+            {
+                return _actualPage;
+            }
+            set
+            {
+                _actualPage = value;
+            }
+        }
+
+        public string SearchText
+        {
+            get
+            {
+                return _searchText;
+            }
+            set
+            {
+                _searchText = value;
+            }
+        }
         #endregion
 
     }

@@ -18,6 +18,18 @@ namespace EmployeeManager.ViewModels
         private bool _isAddingNewEmployee;
         private Visibility _saveVisibility;
 
+        public List<string> Genders = new List<string>
+        {
+            "Male",
+            "Female"
+        };
+
+        public List<string> Statuses = new List<string>
+        {
+            "Active",
+            "Inactive"
+        };
+
 
         public EmployeeDetailViewModel(EmployeeDetailView view, Employee employee, bool isEditable, bool isAddingNewEmployee)
         {

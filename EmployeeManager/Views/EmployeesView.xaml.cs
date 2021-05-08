@@ -29,7 +29,9 @@ namespace EmployeeManager.Views
             InitializeComponent();
             _vm = new EmployeesViewModel(this);
             this.DataContext = _vm;
+            _vm.SearchEmployees("", 1);
         }
+
 
         private void OnSearchClick(object sender, RoutedEventArgs e)
         {
@@ -66,6 +68,15 @@ namespace EmployeeManager.Views
             }
         }
 
+        private void OnPreviousPage(object sender, RoutedEventArgs e)
+        {
+            _vm.LoadPreviousPage();
+        }
+
+        private void OnNextPage(object sender, RoutedEventArgs e)
+        {
+            _vm.LoadNextPage();
+        }
 
     }
 
