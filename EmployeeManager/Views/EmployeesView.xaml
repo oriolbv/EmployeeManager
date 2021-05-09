@@ -15,12 +15,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="0,0,0,5">
+        <Grid Grid.Row="0" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Margin="0,0,10,0">
                 <TextBox Name="tbSearch"></TextBox>
             </Grid>
             <Grid Grid.Column="1">
@@ -33,16 +33,16 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Margin="0,0,10,0">
                 <Button Name="btnAdd" Width="50" Content="Add" Click="OnAddUser"></Button>
             </Grid>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1"  Margin="0,0,10,0">
                 <Button Name="btnExport" Width="50" Content="Export" Click="OnExportData"></Button>
             </Grid>
         </Grid>
 
         <!-- List of Employees -->
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="0, 10,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
