@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace EmployeeManager.ViewModels
 {
-    class EmployeeDetailViewModel
+    public class EmployeeDetailViewModel
     {
         private static ApiRestConsumer _api = new ApiRestConsumer();
         private EmployeeDetailView _view;

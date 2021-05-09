@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace EmployeeManager.ViewModels
 {
-    class EmployeesViewModel
+    public class EmployeesViewModel
     {
         private static ApiRestConsumer _api = new ApiRestConsumer();
         private static EmployeesView _view;
@@ -73,7 +73,7 @@ namespace EmployeeManager.ViewModels
             }
         }
 
-        internal void LoadPreviousPage()
+        public void LoadPreviousPage()
         {
             if (_actualPage > 1)
             {
@@ -82,7 +82,7 @@ namespace EmployeeManager.ViewModels
             }
         }
 
-        internal void LoadNextPage()
+        public void LoadNextPage()
         {
             ActualPage += 1;
             SearchEmployees(_searchText, _actualPage);
@@ -137,6 +137,19 @@ namespace EmployeeManager.ViewModels
                 _searchText = value;
             }
         }
+
+        public List<Employee> Employees
+        {
+            get
+            {
+                return _employees;
+            }
+            set
+            {
+                _employees = value;
+            }
+        }
+
         #endregion
 
     }
