@@ -27,6 +27,12 @@ namespace EmployeeManager.Views
             InitializeComponent();
             _vm = new EmployeeDetailViewModel(this, employee, isEditable, isAddingNewEmployee);
             this.DataContext = _vm;
+            // Fill comboboxes data after loading the view.
+            cbGender.ItemsSource = _vm.Genders;
+            cbGender.SelectedIndex = 1;
+            cbStatus.ItemsSource = _vm.Statuses;
+            cbStatus.SelectedIndex = 1;
+
         }
 
         private void OnSave(object sender, RoutedEventArgs e)

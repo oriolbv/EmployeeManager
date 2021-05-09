@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmployeeManager.Views"
         mc:Ignorable="d"
-        Title="EmployeeDetailView" Height="230" Width="400">
+        Title="EmployeeDetailView" Height="230" Width="400" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -51,8 +51,6 @@
             </Grid>
             <Grid Grid.Column="1">
                 <ComboBox Name="cbGender" SelectedValue="{Binding Gender, Mode=TwoWay}">
-                    <ComboBoxItem>Male</ComboBoxItem>
-                    <ComboBoxItem>Female</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>
@@ -67,8 +65,6 @@
             </Grid>
             <Grid Grid.Column="1">
                 <ComboBox Name="cbStatus" SelectedValue="{Binding Status, Mode=TwoWay}">
-                    <ComboBoxItem>Active</ComboBoxItem>
-                    <ComboBoxItem>Inactive</ComboBoxItem>
                 </ComboBox>
             </Grid>
         </Grid>
